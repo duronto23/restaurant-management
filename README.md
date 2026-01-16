@@ -1,10 +1,6 @@
-# Restaurant Management System (Go)
+# Restaurant Management System
 
 A **Restaurant Management System** written in **Go**, designed to provide a modular and maintainable backend for managing menus, orders, customers, and related restaurant data.
-
-This project is ideal for developers learning Go backend development and RESTful API design, or anyone building practical tools for real-world service workflows. ([GitHub][1])
-
----
 
 ## Features
 
@@ -28,7 +24,6 @@ This project is ideal for developers learning Go backend development and RESTful
 
 * HTTP API endpoints for all key actions
 
----
 
 ## Project Structure
 
@@ -109,14 +104,12 @@ Your API will start on the configured port (e.g., `http://localhost:8080`).
 | PUT    | `/orders/:id/status` | Update an order status |
 
 
-## Development
-
-As you continue building this:
+## Future Development
 
 * Add **authentication** (JWT or session-based)
 * Add **validation** for inputs
 * Add **unit tests** for handlers and services
-* Document your API with **Swagger/OpenAPI**
+* Document API with **Swagger/OpenAPI**
 
 ## Contributing
 
