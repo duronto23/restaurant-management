@@ -1,112 +1,125 @@
-# Restaurant Management System
+# Restaurant Management System (Go)
 
-A full-stack restaurant management application designed to manage menu items and customer orders efficiently.  
-This repository is intended primarily for **developers** who want to understand, extend, or build upon a practical full-stack project using **React**, **Node.js**, and **MySQL**.
+A **Restaurant Management System** written in **Go**, designed to provide a modular and maintainable backend for managing menus, orders, customers, and related restaurant data.
 
+This project is ideal for developers learning Go backend development and RESTful API design, or anyone building practical tools for real-world service workflows. ([GitHub][1])
+
+---
 
 ## Features
 
-- **Menu Management**
-  - Add, update, and delete menu items
-  - Categorize items with descriptions and prices
+✔ **Menu Management**
 
-- **Order Management**
-  - Create customer orders
-  - Track order status (pending, preparing, delivered)
-  - View order details with associated items
+* Create, read, update, delete menu items
 
-- **Real-Time Updates**
-  - Frontend reflects backend changes without manual refresh
+✔ **Order Handling**
 
-- **Customer Handling**
-  - Basic customer identification per order
+* Place and track customer orders
 
+✔ **Customer / User Handling**
 
-## Tech Stack
+* Manage customers or user sessions (depending on implementation)
 
-### Frontend
-- React
-- Vite
-- Tailwind CSS
-- JavaScript
+✔ **Modular Structure**
 
-### Backend
-- Node.js
-- Express.js
-- MySQL
+* Clear separation of controllers, models, middleware, and routes
 
-### Database
-- MySQL 8  
-- Tested with Azure Database for MySQL (Flexible Server)
+✔ **REST API**
 
+* HTTP API endpoints for all key actions
+
+---
 
 ## Project Structure
 
-```plaintext
+````
 restaurant-management/
-├── frontend/
-│   ├── src/
-│   ├── public/
-│   ├── package.json
-│   └── vite.config.js
-├── backend/
-│   ├── server.js
-│   ├── package.json
-│   └── .env.example
-├── README.md
-└── LICENSE
-```
+├── controllers/      # API handler logic
+├── database/         # Database connection & setup
+├── helpers/          # Utility and helper functions
+├── middleware/       # Middlewares (auth, logging, etc.)
+├── models/           # Database models
+├── routes/           # Router and route definitions
+├── main.go           # Application entry point
+├── go.mod            # Go module file
+├── go.sum            # Dependency lock file
+└── README.md
 
+## Tech Stack
 
-## Installation and Setup
+- **Language:** Go  
+- **Routing:** `net/http` / Gin / another Go HTTP framework  
+- **Database:** (depends on your code/config — could be MySQL, PostgreSQL, SQLite, or MongoDB)
 
-### Prerequisites
+## Requirements
 
-- Node.js (v14 or higher)
-- npm or yarn
-- MySQL
+Make sure your system has the following installed:
+
+- Go (1.18 or later recommended)
+- Database server (MySQL / PostgreSQL / MongoDB as used in the code)
 - Git
 
 
-## Backend Setup
+## Installation & Running
+
+### 1. **Clone the repository**
 
 ```bash
 git clone https://github.com/duronto23/restaurant-management.git
-cd restaurant-management/backend
-npm install
-```
+cd restaurant-management
+````
 
-Create a `.env` file:
-
-```env
-AZURE_MYSQL_HOST=localhost
-AZURE_MYSQL_USER=root
-AZURE_MYSQL_PASSWORD=your_password
-AZURE_MYSQL_DATABASE=restaurant_db
-```
-
-Run backend:
-```bash
-npm run dev
-```
-
-
-## Frontend Setup
+### 2. **Install dependencies**
 
 ```bash
-cd ../frontend
-npm install
-npm run dev
+go mod tidy
 ```
+
+### 3. **Configure environment**
+
+Create a `.env` file (or similar configuration file) with values for:
+
+```
+PORT=8080
+DB_HOST=…
+DB_PORT=…
+DB_USER=…
+DB_PASS=…
+DB_NAME=…
+```
+
+### 4. **Run the server**
+
+```bash
+go run main.go
+```
+
+Your API will start on the configured port (e.g., `http://localhost:8080`).
 
 
 ## API Endpoints
 
-| Method | Endpoint | Description |
-|------|---------|-------------|
-| GET | /api/menu-items | Fetch all menu items |
-| POST | /api/menu-items | Create a new menu item |
-| GET | /api/orders | Fetch all orders |
-| POST | /api/orders | Create a new order |
-| PUT | /api/orders/:id | Update order status |
+| Method | Endpoint             | Description            |
+| ------ | -------------------- | ---------------------- |
+| GET    | `/menus`             | List all menu items    |
+| POST   | `/menus`             | Create a new menu item |
+| GET    | `/orders`            | List all orders        |
+| POST   | `/orders`            | Create a new order     |
+| GET    | `/customers/:id`     | Get customer by ID     |
+| PUT    | `/orders/:id/status` | Update an order status |
+
+
+## Development
+
+As you continue building this:
+
+* Add **authentication** (JWT or session-based)
+* Add **validation** for inputs
+* Add **unit tests** for handlers and services
+* Document your API with **Swagger/OpenAPI**
+
+## Contributing
+
+Contributions, suggestions, and feedback are welcome!
+Open an issue or submit a pull request to improve features or documentation.
 
