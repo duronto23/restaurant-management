@@ -39,6 +39,7 @@ restaurant-management/
 ├── go.mod            # Go module file
 ├── go.sum            # Dependency lock file
 └── README.md
+````
 
 ## Tech Stack
 
